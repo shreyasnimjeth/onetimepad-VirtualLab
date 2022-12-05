@@ -1,0 +1,143 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>pre { background: radial-gradient(rgb(93, 180, 231),#1a188ba6);font-size: 15px; } ;</style>
+</head>
+<body>
+
+	<link rel="stylesheet" href="1.css">
+	<link rel="stylesheet" href="Index.css">
+    <link rel="stylesheet" href="AIM.css">
+
+
+	<div class="header">
+
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="LOGO-1.PNG" width="115px">
+                </div>
+                
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="main.html">Aim</a></li>
+                        <li><a href="Theory.html">Theory</a></li>
+                        <li><a href="Procedure.html">Procedure</a></li>
+                        <li><a href="OneTimePad.js Test.html">Simulation</a></li>
+                        <li><a href="cryptanaysis.html">cryptanalysis</a></li>
+						<li><a href="About.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </div>
+
+
+<h1><br>
+<h1 style="background-color:rgb(145, 183, 221);">One-Time Pad Cipher</h1>
+
+<div class="btn">
+<div class="rightNav">
+
+<div class="navbar">
+<hr>
+<div class="left">
+	<form onsubmit="runEncryptTest(); return false;">
+		Message: <input type="text" id="messageTextboxEncrypt" value="add"></textarea>
+		Key: <input type="text" id="keyTextboxEncrypt" value="daa"></input>
+		Key Repetition: <input type="checkbox" id="keyRepetitionCheckboxEncrypt">
+		<button  type="submit">Run Encrypt Test</button>
+	</form>
+</div>
+<hr>
+<div class="right">
+	<form onsubmit="runDecryptTest(); return false;">
+		Message: <input type="text" id="ciphertextTextboxDecrypt" value="ddd"></input>
+		Key: <input type="text" id="keyTextboxDecrypt" value="daa"></input>
+		Key Repetition: <input type="checkbox" id="keyRepetitionCheckboxDecrypt">
+		<button type="submit">Run Decrypt Test</button>
+	</form>
+	
+</div>
+<hr>
+</div>
+</div>
+
+
+<p>Plaintext message: <pre id="plaintext">null</pre></p>
+<p>Encoded message: <pre id="encoded">null</pre></p>
+<p>Decoded message: <pre id="decoded">null</pre></p>
+<p>Key: <pre id="key">null</pre></p>
+<p>Encoded key: <pre id="encodedkey">null</pre></p>
+<p>Encrypted message: <pre id="encrypted">null</pre></p>
+<p>Decrypted message: <pre id="decrypted">null</pre></p>
+</div>
+
+
+<div class="name">
+	<h3>MADE BY:<br>PRIISH KHOBRAGADE <br> Shreyas Nimje <br> Vedant Bopankar</h3>
+</div>
+<!-- <p class="Copyright">@Copright 2023 - Pritish.k.Khobragade</p> -->
+
+
+
+<script type="text/javascript" src="onetimepad.js"></script>
+
+<script type="text/javascript">
+
+function runEncryptTest() {
+	var messageTextbox = document.getElementById("messageTextboxEncrypt").value;
+	var keyTextbox = document.getElementById("keyTextboxEncrypt").value;
+	var keyRepetitionCheckbox = document.getElementById("keyRepetitionCheckboxEncrypt").checked;
+	
+	var plainText = messageTextbox;
+	var encodedMessage = encode(plainText);
+	var decodedMessage = decode(encodedMessage);
+	var key = keyTextbox;
+	var encodedKey = encode(key);
+	var encryptedMessage = otp(plainText, key, "encrypt", keyRepetitionCheckbox);
+	var encryptedMessages = decode(encryptedMessage);                             //Convert Number into text using codebook
+	var decryptedMessage = otp(encryptedMessage, key, "decrypt", keyRepetitionCheckbox);
+	
+	document.getElementById("plaintext").innerHTML = plainText;
+	document.getElementById("encoded").innerHTML = encodedMessage;
+	document.getElementById("decoded").innerHTML = decodedMessage;
+	document.getElementById("key").innerHTML = key;
+	document.getElementById("encodedkey").innerHTML = encodedKey;
+	document.getElementById("encrypted").innerHTML = encryptedMessages;
+	
+	document.getElementById("decrypted").innerHTML = decryptedMessage;
+}
+
+
+function runDecryptTest() {
+	var ciphertextTextbox = document.getElementById("ciphertextTextboxDecrypt").value;
+	var keyTextbox = document.getElementById("keyTextboxDecrypt").value;
+	var keyRepetitionCheckbox = document.getElementById("keyRepetitionCheckboxDecrypt").checked;
+		
+	var encryptedMessage = ciphertextTextbox;
+	var encodedMessages = encode(encryptedMessage);
+	var key = keyTextbox;
+	var encodedKey = encode(key);
+	var decryptedMessage = otp(encodedMessages, key, "decrypt", keyRepetitionCheckbox);
+	var plainText = decryptedMessage;
+	var encodedMessage = encode(plainText);
+	var decodedMessage = decode(decryptedMessage);
+	
+	document.getElementById("plaintext").innerHTML = encryptedMessage;
+	document.getElementById("encoded").innerHTML = encodedMessages;
+	document.getElementById("decoded").innerHTML = decodedMessage;
+	document.getElementById("key").innerHTML = key;
+	document.getElementById("encodedkey").innerHTML = encodedKey;
+	// document.getElementById("encrypted").innerHTML = encryptedMessage;
+	document.getElementById("decrypted").innerHTML = decryptedMessage;
+}
+
+
+
+</script>
+
+
+</body>
+</html>

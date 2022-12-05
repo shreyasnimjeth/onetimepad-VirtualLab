@@ -1,0 +1,52 @@
+h1{
+    padding: 10px 2px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+/* .main{
+    background-color: rgb(179, 186, 212);
+} */
+
+.main{
+    padding: 50px 30px;
+    margin: 30px 60px;
+    border: 5px solid rgb(17, 2, 87);
+    border-radius: 25px;
+    background: none;
+    color: rgb(5, 5, 5);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 400;
+    background: rgba(133, 149, 240, 0.322);
+}
+.name{
+    padding: 30px 00px;
+    margin:00px 00px 00px 00px;
+    background: radial-gradient(rgba(12, 12, 12, 0.863),#030303);
+    letter-spacing: 6px;
+    color:aliceblue;
+    text-align: center;
+}
+.text{
+    padding: 50px 30px;
+    margin: 30px 60px;
+    border: 5px solid rgb(17, 2, 87);
+    border-radius: 25px;
+    background: none;
+    color: rgb(5, 5, 5);
+    cursor: pointer;
+    letter-spacing: 6px;
+    font-weight: 400;
+    background: rgba(133, 149, 240, 0.322);
+    text-align: inherit;
+}
+.image{
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+}
+.Copyright{
+    background-color: rgba(0, 0, 0, 0.952);
+    text-align: center;
+    color: aliceblue;
+}
